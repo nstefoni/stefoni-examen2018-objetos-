@@ -1,4 +1,5 @@
 
+
 class Cerveza {
 	var property costoLupulo 
 	var property costoLevadura
@@ -47,7 +48,9 @@ class Lager inherits Cerveza {
 	
 	
 	method agregarIngredientes(numeroDeIngredientes) {
+		if (cantidadIngredientes + numeroDeIngredientes <= 10){
 		cantidadIngredientes += numeroDeIngredientes
+		} else { console.println("excedes la cantidad de ingredientes permitidos")}
 	}
 	
 	method quitarIngredientes(numeroDeIngredientes) {
@@ -56,8 +59,8 @@ class Lager inherits Cerveza {
 	
 	method costo(){
 		return costoLevadura + costoLupulo + (cantidadIngredientes * 50)
+		}
 	}
-}
 
 class Porter inherits Cerveza {
 	
@@ -68,9 +71,7 @@ class Porter inherits Cerveza {
 	} 
 	
 	method costo(){
-		return (costoLevadura + costoLupulo) + (distanciaProveedor * 0.02)
+		var costoCerveza = costoLevadura + costoLupulo
+		return costoCerveza +(costoCerveza * 0.02 * distanciaProveedor)
 	}
 }
-
-
-
